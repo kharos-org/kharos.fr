@@ -1,0 +1,921 @@
+/* ==========================================================
+   SPOT PAGE: elevated design
+   All visual improvements via CSS only. HTML structure untouched.
+   ========================================================== */
+
+/* ==========================================================
+   1. HERO: 2-column split with abstract UI visual
+   ========================================================== */
+.product-hero {
+    position: relative;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--nav-height) + var(--space-5xl)) 0 var(--space-4xl);
+    overflow: hidden;
+}
+
+.product-hero .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.product-hero .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+}
+
+.product-hero .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+}
+
+/* Abstract dashboard visual on the right side of hero */
+.product-hero .container::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 420px;
+    height: 320px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    box-shadow:
+        0 0 0 1px var(--border),
+        0 24px 80px -12px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    /* Fake dashboard: sidebar + content area */
+    background-image:
+        /* Sidebar */
+        linear-gradient(to right, var(--bg-card) 0px, var(--bg-card) 80px, transparent 80px),
+        /* Top bar */
+        linear-gradient(to bottom, var(--border) 0px, var(--border) 1px, transparent 1px),
+        /* Sidebar items */
+        linear-gradient(to right, var(--border-light) 0px, var(--border-light) 40px, transparent 40px),
+        linear-gradient(to right, var(--accent) 0px, var(--accent) 30px, transparent 30px),
+        linear-gradient(to right, var(--border-light) 0px, var(--border-light) 36px, transparent 36px),
+        linear-gradient(to right, var(--border-light) 0px, var(--border-light) 44px, transparent 44px),
+        /* Content area: status bars */
+        linear-gradient(to right, var(--accent) 0px, var(--accent) 120px, transparent 120px),
+        linear-gradient(to right, var(--accent) 0px, var(--accent) 80px, transparent 80px),
+        linear-gradient(to right, rgba(0,212,170,0.3) 0px, rgba(0,212,170,0.3) 160px, transparent 160px),
+        /* Content area: device dots */
+        radial-gradient(circle 3px at 140px 180px, var(--accent) 100%, transparent 100%),
+        radial-gradient(circle 3px at 200px 200px, var(--accent) 100%, transparent 100%),
+        radial-gradient(circle 3px at 260px 160px, var(--accent) 100%, transparent 100%),
+        radial-gradient(circle 3px at 180px 230px, rgba(0,212,170,0.4) 100%, transparent 100%),
+        radial-gradient(circle 3px at 300px 210px, rgba(0,212,170,0.4) 100%, transparent 100%),
+        radial-gradient(circle 3px at 340px 170px, var(--accent) 100%, transparent 100%),
+        /* Floor plan outline in content area */
+        linear-gradient(to right, var(--border-light) 0px, var(--border-light) 240px, transparent 240px),
+        linear-gradient(to bottom, var(--border-light) 0px, var(--border-light) 120px, transparent 120px),
+        linear-gradient(to right, var(--border-light) 0px, var(--border-light) 240px, transparent 240px),
+        linear-gradient(to bottom, var(--border-light) 0px, var(--border-light) 120px, transparent 120px);
+    background-size:
+        80px 100%,
+        100% 44px,
+        40px 3px, 30px 3px, 36px 3px, 44px 3px,
+        120px 4px, 80px 4px, 160px 4px,
+        6px 6px, 6px 6px, 6px 6px, 6px 6px, 6px 6px, 6px 6px,
+        1px 120px, 240px 1px, 1px 120px, 240px 1px;
+    background-position:
+        0 0,
+        0 44px,
+        20px 72px, 20px 92px, 20px 112px, 20px 132px,
+        110px 72px, 110px 92px, 110px 112px,
+        140px 180px, 200px 200px, 260px 160px, 180px 230px, 300px 210px, 340px 170px,
+        100px 140px, 100px 140px, 340px 140px, 100px 260px;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Glow accent on the mock */
+.product-hero .hero-content::after {
+    content: '';
+    position: absolute;
+    right: -500px;
+    top: -60px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle at center, var(--accent-glow) 0%, transparent 60%);
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.product-hero h1 {
+    font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    margin-bottom: var(--space-lg);
+}
+
+.product-hero h1 .accent {
+    color: var(--accent);
+}
+
+.product-hero .hero-sub {
+    font-size: clamp(1rem, 1.8vw, 1.125rem);
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: var(--space-2xl);
+}
+
+.hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-2xl);
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-card);
+}
+
+.badge svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ==========================================================
+   2. PROBLEM: asymmetric dramatic layout
+   ========================================================== */
+.problem {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+/* Subtle grid pattern on problem section */
+.problem::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px),
+                       linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.15;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+}
+
+.problem .container {
+    position: relative;
+    z-index: 1;
+}
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-3xl);
+    align-items: center;
+}
+
+.problem-text {
+    max-width: 520px;
+}
+
+.problem-text p {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+}
+
+.problem-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Callout: dramatic pulled-quote style */
+.callout {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px;
+    padding: var(--space-2xl);
+    position: relative;
+}
+
+/* Large decorative quote mark */
+.callout::before {
+    content: '\201C';
+    position: absolute;
+    top: 12px;
+    left: var(--space-lg);
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0.25;
+    font-family: Georgia, serif;
+    pointer-events: none;
+}
+
+.callout p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.callout strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* ==========================================================
+   3. FEATURES: 2x2 grid + compliance banner below
+   ========================================================== */
+.features {
+    position: relative;
+}
+
+/* Left-align the header instead of center */
+.features .services-header {
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.features .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+}
+
+/* The 4 main cards get a top accent line on hover */
+.features .card {
+    position: relative;
+    overflow: hidden;
+}
+
+.features .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.features .card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Coming soon card: horizontal banner style, not a card */
+.card-coming-soon {
+    border-style: solid !important;
+    border-color: var(--border) !important;
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%) !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.card-coming-soon .card-icon {
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.card-coming-soon h3 {
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.card-coming-soon p {
+    flex: 1;
+}
+
+/* Override the full-width span for last odd child */
+.features .cards .card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+}
+
+/* ==========================================================
+   4. QUOTE BLOCK: full-width dramatic break
+   ========================================================== */
+.quote-block {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: var(--space-4xl) 0;
+    margin-top: var(--space-3xl);
+    text-align: center;
+    position: relative;
+}
+
+.quote-block::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.quote-block p {
+    font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.45;
+    margin-bottom: 0;
+    position: relative;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: -0.02em;
+}
+
+.quote-block .accent {
+    color: var(--accent);
+}
+
+/* ==========================================================
+   5. SCREENSHOT: CSS-only abstract product wireframe
+   ========================================================== */
+.screenshot-section {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.screenshot-section .services-header {
+    text-align: left;
+    margin-left: 0;
+}
+
+.screenshot-frame {
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    background: var(--bg-card);
+    position: relative;
+    box-shadow: 0 24px 80px -12px rgba(0, 0, 0, 0.4);
+}
+
+/* Hide the text placeholder */
+.screenshot-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: 0;
+    color: var(--text-muted);
+    font-size: 0;
+    font-weight: 500;
+    height: 380px;
+    position: relative;
+    border: none;
+    border-radius: 0;
+}
+
+.screenshot-placeholder > svg,
+.screenshot-placeholder > span {
+    display: none;
+}
+
+/* Build a fake dashboard UI */
+.screenshot-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        /* Top bar */
+        linear-gradient(to bottom, var(--bg-card-hover) 48px, transparent 48px),
+        /* Top bar border */
+        linear-gradient(to bottom, var(--border) 0, var(--border) 1px, transparent 1px),
+        /* Sidebar */
+        linear-gradient(to right, rgba(255,255,255,0.02) 220px, transparent 220px),
+        /* Sidebar border */
+        linear-gradient(to right, var(--border) 0, var(--border) 1px, transparent 1px);
+    background-size:
+        100% 48px,
+        100% 49px,
+        220px 100%,
+        221px 100%;
+    background-position:
+        0 0,
+        0 48px,
+        0 48px,
+        220px 48px;
+    background-repeat: no-repeat;
+}
+
+/* Fake sidebar items + content cards */
+.screenshot-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        /* Sidebar nav items */
+        linear-gradient(to right, var(--accent) 3px, var(--accent-dim) 3px, var(--accent-dim) 180px, transparent 180px),
+        linear-gradient(to right, transparent 16px, var(--border-light) 16px, var(--border-light) 160px, transparent 160px),
+        linear-gradient(to right, transparent 16px, var(--border-light) 16px, var(--border-light) 140px, transparent 140px),
+        linear-gradient(to right, transparent 16px, var(--border-light) 16px, var(--border-light) 170px, transparent 170px),
+        /* Topbar elements */
+        linear-gradient(to right, var(--text-muted) 0, var(--text-muted) 60px, transparent 60px),
+        linear-gradient(to right, var(--border-light) 0, var(--border-light) 100px, transparent 100px),
+        /* Content: stat cards row */
+        linear-gradient(to right, var(--bg-card-hover) 0, var(--bg-card-hover) 160px, transparent 160px),
+        linear-gradient(to right, var(--bg-card-hover) 0, var(--bg-card-hover) 160px, transparent 160px),
+        linear-gradient(to right, var(--bg-card-hover) 0, var(--bg-card-hover) 160px, transparent 160px),
+        /* Stat values */
+        linear-gradient(to right, var(--accent) 0, var(--accent) 48px, transparent 48px),
+        linear-gradient(to right, var(--text-primary) 0, var(--text-primary) 36px, transparent 36px),
+        linear-gradient(to right, var(--accent) 0, var(--accent) 52px, transparent 52px),
+        /* Content: map area outline */
+        linear-gradient(to bottom, var(--border) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--border) 1px, transparent 1px),
+        linear-gradient(to right, var(--border) 1px, transparent 1px),
+        linear-gradient(to right, var(--border) 1px, transparent 1px),
+        /* Map dots */
+        radial-gradient(circle 4px at 350px 260px, var(--accent) 100%, transparent 100%),
+        radial-gradient(circle 4px at 450px 290px, var(--accent) 100%, transparent 100%),
+        radial-gradient(circle 4px at 550px 240px, rgba(0,212,170,0.5) 100%, transparent 100%),
+        radial-gradient(circle 4px at 400px 310px, rgba(0,212,170,0.5) 100%, transparent 100%),
+        radial-gradient(circle 4px at 500px 270px, var(--accent) 100%, transparent 100%),
+        radial-gradient(circle 3px at 620px 280px, rgba(0,212,170,0.3) 100%, transparent 100%),
+        radial-gradient(circle 3px at 380px 250px, rgba(0,212,170,0.3) 100%, transparent 100%);
+    background-size:
+        180px 36px, 144px 3px, 124px 3px, 154px 3px,
+        60px 3px, 100px 3px,
+        160px 72px, 160px 72px, 160px 72px,
+        48px 4px, 36px 4px, 52px 4px,
+        520px 1px, 520px 1px, 1px 170px, 1px 170px,
+        8px 8px, 8px 8px, 8px 8px, 8px 8px, 8px 8px, 6px 6px, 6px 6px;
+    background-position:
+        0 78px, 16px 130px, 16px 150px, 16px 170px,
+        252px 18px, 600px 18px,
+        252px 78px, 432px 78px, 612px 78px,
+        276px 104px, 456px 104px, 636px 104px,
+        252px 175px, 252px 345px, 252px 175px, 772px 175px,
+        350px 260px, 450px 290px, 550px 240px, 400px 310px, 500px 270px, 620px 280px, 380px 250px;
+    background-repeat: no-repeat;
+}
+
+/* ==========================================================
+   6. DEPLOYMENT: 3-column centered layout
+   ========================================================== */
+.deployment {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+.deployment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-3xl);
+}
+
+.deploy-item {
+    text-align: center;
+    padding: var(--space-2xl) var(--space-lg);
+    border-radius: 12px;
+    transition: background 0.2s ease;
+}
+
+.deploy-item:hover {
+    background: var(--bg-card);
+}
+
+.deploy-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: var(--accent-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-lg);
+}
+
+.deploy-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.deploy-item h3 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.deploy-item p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+/* ==========================================================
+   7. PRICING: kept mostly intact, subtle refinements
+   ========================================================== */
+.pricing {
+    border-top: 1px solid var(--border);
+}
+
+.pricing-header {
+    max-width: 560px;
+    margin-bottom: var(--space-3xl);
+}
+
+.pricing-header p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.pricing-calculator {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: var(--space-2xl) var(--space-2xl) var(--space-lg);
+    margin-bottom: var(--space-2xl);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle corner glow */
+.pricing-calculator::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.calculator-slider-section {
+    margin-bottom: var(--space-2xl);
+}
+
+.slider-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: var(--space-lg);
+}
+
+.slider-header label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.device-count {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    min-width: 80px;
+    text-align: right;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--border);
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.slider::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 3px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--bg-primary);
+    box-shadow: 0 0 0 1px var(--accent), 0 2px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    margin-top: -9px;
+    transition: box-shadow 0.15s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 0 1px var(--accent), 0 0 12px var(--accent-glow), 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--bg-primary);
+    box-shadow: 0 0 0 1px var(--accent), 0 2px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.slider::-moz-range-track {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--border);
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-sm);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.calculator-result {
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-lg);
+}
+
+.result-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xl);
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+
+.result-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.result-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.result-total .result-value {
+    color: var(--accent);
+}
+
+.result-sub {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.result-divider {
+    width: 1px;
+    height: 48px;
+    background: var(--border);
+    flex-shrink: 0;
+}
+
+.result-tier {
+    margin-top: var(--space-md);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+}
+
+.pricing-tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+}
+
+.tier {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.tier.active {
+    border-color: var(--accent);
+    background: var(--bg-card);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.tier-devices {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-sm);
+}
+
+.tier-price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.03em;
+    line-height: 1;
+}
+
+.tier-unit {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin-top: var(--space-xs);
+}
+
+/* ==========================================================
+   8. "COMING SOON" BADGE
+   ========================================================== */
+.badge-soon {
+    display: inline-block;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+/* ==========================================================
+   9. SPOT CTA: dramatic final section
+   ========================================================== */
+.spot-cta {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background glow */
+.spot-cta::before {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 60%);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.spot-cta .section-heading {
+    margin-bottom: var(--space-md);
+}
+
+.spot-cta p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin: 0 auto var(--space-2xl);
+    line-height: 1.6;
+}
+
+/* ==========================================================
+   10. RESPONSIVE
+   ========================================================== */
+@media (max-width: 768px) {
+    .product-hero {
+        padding: calc(var(--nav-height) + var(--space-3xl)) 0 var(--space-3xl);
+    }
+
+    /* Hide the dashboard mock on mobile */
+    .product-hero .container::after {
+        display: none;
+    }
+
+    .problem-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+
+    .features .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .features .services-header,
+    .deployment .services-header,
+    .screenshot-section .services-header {
+        text-align: center;
+    }
+
+    /* Reset coming-soon card to vertical on mobile */
+    .card-coming-soon {
+        flex-direction: column !important;
+    }
+
+    .card-coming-soon .card-icon {
+        margin-bottom: var(--space-lg);
+    }
+
+    .deployment-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+        margin-top: var(--space-2xl);
+    }
+
+    .pricing-tiers {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-calculator {
+        padding: var(--space-lg);
+    }
+
+    .result-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-lg);
+    }
+
+    .result-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .result-value {
+        font-size: 1.5rem;
+    }
+
+    .screenshot-placeholder {
+        height: 240px;
+    }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+    .product-hero h1 {
+        font-size: 2rem;
+    }
+
+    .screenshot-placeholder {
+        height: 180px;
+    }
+}
+
+/* Stagger for feature cards */
+.features .card:nth-child(1) { transition-delay: 0s; }
+.features .card:nth-child(2) { transition-delay: 0.1s; }
+.features .card:nth-child(3) { transition-delay: 0.2s; }
+.features .card:nth-child(4) { transition-delay: 0.3s; }
+.features .card:nth-child(5) { transition-delay: 0.4s; }

@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPOT | Security Platform for Operational Technology | Kharos</title>
+    <meta
+      name="description"
+      content="SPOT automates OT device lifecycle management for critical infrastructure. On-premise, air-gap compatible, built for compliance."
+    />
+    <meta name="keywords" content="OT security, device management, 802.1x automation, compliance, operational technology, SPOT, Kharos" />
+    <meta property="og:title" content="SPOT | Security Platform for Operational Technology" />
+    <meta
+      property="og:description"
+      content="Automate OT device lifecycle management. On-premise, air-gap compatible, built for lean teams under regulatory pressure."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kharos.fr/spot" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://kharos.fr/spot" />
+    <link rel="icon" type="image/svg+xml" href="logo-dark.svg" id="favicon" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="spot.css" />
+  </head>
+  <body data-page="spot">
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <a href="index.html" class="nav-logo" aria-label="Kharos home">
+          <img src="logo-dark.svg" alt="Kharos logo" width="24" height="24" class="logo-dark" />
+          <img src="logo-light.svg" alt="Kharos logo" width="24" height="24" class="logo-light" />
+          Kharos
+        </a>
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="#problem" data-i18n="nav.problem">The problem</a></li>
+          <li><a href="#features" data-i18n="nav.features">Features</a></li>
+          <li><a href="#deployment" data-i18n="nav.deployment">Deployment</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <!-- <button class="lang-toggle" id="langToggle" aria-label="Switch language">FR</button> -->
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+            <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" /></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          </button>
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="product-hero" id="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="section-label" data-i18n="spot.hero.label">Security Platform for Operational Technology</span>
+          <h1 data-i18n-html="spot.hero.headline">Your OT fleet is a compliance gap.<br /><span class="accent">SPOT closes it.</span></h1>
+          <p class="hero-sub" data-i18n="spot.hero.sub">
+            SPOT automates device lifecycle management for OT environments in critical infrastructure. Certificate rotation, network configuration,
+            fleet inventory, compliance proof. All on-premise, all from a single interface.
+          </p>
+          <div class="hero-badges">
+            <span class="badge">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+              <span data-i18n="spot.hero.badge1">100% on-premise</span>
+            </span>
+            <span class="badge">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg>
+              <span data-i18n="spot.hero.badge2">Air-gap compatible</span>
+            </span>
+            <span class="badge">
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              <span data-i18n="spot.hero.badge3">Compliance ready</span>
+            </span>
+          </div>
+          <a href="#contact" class="btn btn-primary">
+            <span data-i18n="spot.hero.cta">Book a discovery call</span>
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3.5 8h9M8.5 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== THE PROBLEM ==================== -->
+    <section class="problem" id="problem">
+      <div class="container">
+        <div class="problem-grid">
+          <div class="problem-text fade-in">
+            <span class="section-label" data-i18n="spot.problem.label">The problem</span>
+            <h2 class="section-heading" data-i18n="spot.problem.heading">OT devices are the blind spot in critical infrastructure security</h2>
+            <p data-i18n="spot.problem.p1">
+              Critical infrastructure operators run thousands of OT devices: IP cameras, badge readers, access control systems, intercoms. These
+              devices come from multiple vendors, span multiple generations, and are rarely included in cybersecurity audits.
+            </p>
+            <p data-i18n="spot.problem.p2">
+              Teams manage them manually with spreadsheets and vendor-specific tools. Firmware versions are unknown. Certificate lifecycles are
+              tracked in email threads. Configuration drift goes unnoticed until an audit flags it.
+            </p>
+            <p data-i18n="spot.problem.p3">
+              Meanwhile, security frameworks and compliance requirements are tightening. Regulators are no longer accepting "we'll get to it."
+            </p>
+          </div>
+          <div class="callout fade-in">
+            <p data-i18n-html="spot.problem.callout">
+              <strong>Real example:</strong> To update 802.1x certificates on 600 IP cameras, it took a dedicated team working several weeks. One
+              brand at a time, one device at a time. This is not an edge case. This is the norm.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WHAT SPOT DOES ==================== -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="services-header fade-in">
+          <span class="section-label" data-i18n="spot.features.label">What SPOT does</span>
+          <h2 class="section-heading" data-i18n="spot.features.heading">Automate the work nobody should be doing manually</h2>
+          <p data-i18n="spot.features.sub">
+            SPOT handles the most painful, time-consuming OT operations tasks across your entire fleet, regardless of brand or generation.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card fade-in">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </div>
+            <h3 data-i18n="spot.features.card1.title">802.1x certificate lifecycle</h3>
+            <p data-i18n="spot.features.card1.text">
+              Automated CSR generation, signing, and upload across your entire device fleet. What took weeks now takes minutes. No manual
+              device-by-device work.
+            </p>
+          </div>
+
+          <div class="card fade-in">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
+            </div>
+            <h3 data-i18n="spot.features.card2.title">Network configuration management</h3>
+            <p data-i18n="spot.features.card2.text">
+              Push NTP, DNS, and other network settings to hundreds of devices at once. One interface, every brand. No more configuration drift
+              between audits.
+            </p>
+          </div>
+
+          <div class="card fade-in">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24">
+                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" />
+                <line x1="8" y1="2" x2="8" y2="18" />
+                <line x1="16" y1="6" x2="16" y2="22" />
+              </svg>
+            </div>
+            <h3 data-i18n="spot.features.card3.title">Visual device inventory</h3>
+            <p data-i18n="spot.features.card3.text">
+              Upload facility floor plans and place devices on the map. See what's deployed where, with firmware versions, certificate status, and
+              configuration state at a glance.
+            </p>
+          </div>
+
+          <div class="card fade-in">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                <line x1="6" y1="6" x2="6.01" y2="6" />
+                <line x1="6" y1="18" x2="6.01" y2="18" />
+              </svg>
+            </div>
+            <h3 data-i18n="spot.features.card4.title">Multi-brand, single pane</h3>
+            <p data-i18n="spot.features.card4.text">
+              Axis, Bosch, and more coming. Manage your heterogeneous fleet from one interface instead of juggling vendor-specific tools and portals.
+            </p>
+          </div>
+
+          <!-- Compliance reporting: coming soon -->
+          <div class="card card-coming-soon fade-in">
+            <div class="card-icon">
+              <!-- Clipboard/check icon -->
+              <svg viewBox="0 0 24 24">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                <path d="M9 14l2 2 4-4" />
+              </svg>
+            </div>
+            <h3>
+              <span data-i18n="spot.features.card5.title">Compliance reporting</span>
+              <span class="badge-soon" data-i18n="spot.features.card5.badge">Coming soon</span>
+            </h3>
+            <p data-i18n="spot.features.card5.text">
+              Generate audit-ready reports that prove your OT fleet is configured, patched, and compliant. Exportable evidence for every device, every
+              action, every change.
+            </p>
+          </div>
+        </div>
+
+        <div class="quote-block fade-in">
+          <p data-i18n-html="spot.features.quote">
+            "Other tools tell you what's wrong.<br /><span class="accent">SPOT fixes it and proves it to your auditor.</span>"
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SCREENSHOT ==================== -->
+    <section class="screenshot-section" id="screenshot">
+      <div class="container">
+        <div class="services-header fade-in">
+          <span class="section-label" data-i18n="spot.screenshot.label">SPOT in action</span>
+          <h2 class="section-heading" data-i18n="spot.screenshot.heading">Built for operators, not analysts</h2>
+          <p data-i18n="spot.screenshot.sub">A clean interface designed for the teams who actually manage OT devices day to day.</p>
+        </div>
+        <div class="screenshot-frame fade-in">
+          <!-- Replace the placeholder below with: <img src="screenshot.png" alt="SPOT interface"> -->
+          <div class="screenshot-placeholder">
+            <svg viewBox="0 0 24 24" width="32" height="32">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" fill="none" stroke-width="1.5" />
+              <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="1.5" />
+            </svg>
+            <span data-i18n="spot.screenshot.placeholder">Product screenshot</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== DEPLOYMENT ==================== -->
+    <section class="deployment" id="deployment">
+      <div class="container">
+        <div class="services-header fade-in">
+          <span class="section-label" data-i18n="spot.deployment.label">Deployment</span>
+          <h2 class="section-heading" data-i18n="spot.deployment.heading">On-premise. Air-gap compatible. No data leaves your perimeter.</h2>
+          <p data-i18n="spot.deployment.sub">
+            SPOT is deployed entirely within your infrastructure. There is no cloud dependency, no telemetry, no external data flow. Built for
+            environments where data sovereignty is not optional.
+          </p>
+        </div>
+
+        <div class="deployment-grid">
+          <div class="deploy-item fade-in">
+            <div class="deploy-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                <line x1="6" y1="6" x2="6.01" y2="6" />
+                <line x1="6" y1="18" x2="6.01" y2="18" />
+              </svg>
+            </div>
+            <h3 data-i18n="spot.deployment.item1.title">Fully on-premise</h3>
+            <p data-i18n="spot.deployment.item1.text">
+              Frontend, API, queue, workers. Everything runs inside your network. No cloud, no SaaS dependency.
+            </p>
+          </div>
+          <div class="deploy-item fade-in">
+            <div class="deploy-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+            </div>
+            <h3 data-i18n="spot.deployment.item2.title">Air-gap ready</h3>
+            <p data-i18n="spot.deployment.item2.text">
+              Designed for the most restricted environments. No internet required. Deploy in classified or isolated networks.
+            </p>
+          </div>
+          <div class="deploy-item fade-in">
+            <div class="deploy-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+            <h3 data-i18n="spot.deployment.item3.title">Days, not months</h3>
+            <p data-i18n="spot.deployment.item3.text">
+              Lightweight deployment. No agents on devices, no network taps, no months-long integrations. Connect and start managing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="spot-cta" id="contact">
+      <div class="container">
+        <div class="fade-in">
+          <span class="section-label" data-i18n="spot.cta.label">Get started</span>
+          <h2 class="section-heading" data-i18n="spot.cta.heading">Let's talk about your OT fleet</h2>
+          <p data-i18n="spot.cta.text">
+            No pitch deck, no demo theater. A direct conversation about what you're dealing with and whether SPOT is the right fit.
+          </p>
+          <a href="mailto:contact@kharos.fr" class="contact-email">contact@kharos.fr</a>
+          <br /><br />
+          <a href="mailto:contact@kharos.fr" class="btn btn-primary">
+            <span data-i18n="spot.cta.button">Book a discovery call</span>
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3.5 8h9M8.5 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-left">
+          <span class="footer-brand">Kharos</span>
+          <span class="footer-copy">&copy; 2026 Kharos. All rights reserved.</span>
+        </div>
+        <ul class="footer-links" role="list">
+          <li><a href="#" data-i18n="footer.privacy">Privacy Policy</a></li>
+          <li><a href="#" data-i18n="footer.terms">Terms</a></li>
+        </ul>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              />
+            </svg>
+          </a>
+          <a href="#" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script src="spot.js"></script>
+    <script src="i18n.js"></script>
+  </body>
+</html>

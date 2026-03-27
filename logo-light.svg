@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" fill="none">
+  <!--
+    Kharos Logo (light mode): Outfit-style bold "K" with accent dot.
+    Black K for use on light backgrounds.
+  -->
+
+  <!-- K letterform -->
+  <path d="
+    M 20 12  L 40 12  L 40 50  L 72 12  L 96 12  L 58 54
+    L 98 108  L 74 108  L 40 60  L 40 108  L 20 108  Z
+  " fill="#0f1419"/>
+
+  <!-- Round accent dot, bottom-aligned with K baseline -->
+  <circle cx="120" cy="99" r="10" fill="#00a884"/>
+</svg>
