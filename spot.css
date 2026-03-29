@@ -252,6 +252,7 @@
    ========================================================== */
 .features {
     position: relative;
+    overflow: hidden; /* clips quote-block::before glow (400px wide, absolute centered) */
 }
 
 /* Left-align the header instead of center */
@@ -777,6 +778,297 @@
     font-size: 0.8125rem;
     color: var(--text-muted);
     margin-top: var(--space-xs);
+}
+
+/* ==========================================================
+   7b. TIME SAVINGS CALCULATOR
+   ========================================================== */
+.savings {
+    position: relative;
+}
+
+.savings .services-header {
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.savings-calculator {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: var(--space-2xl) var(--space-2xl) var(--space-lg);
+    position: relative;
+}
+
+.savings-calculator::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.savings-breakdown {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+    margin-top: var(--space-2xl);
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-2xl);
+}
+
+/* Donut chart */
+.donut-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.donut-chart {
+    width: 100%;
+    max-width: 220px;
+    overflow: visible;
+    cursor: default;
+}
+
+.donut-ring {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 22;
+}
+
+.donut-seg {
+    fill: none;
+    stroke-width: 22;
+    stroke-linecap: butt;
+    transform-origin: 100px 100px;
+    transform: rotate(-90deg);
+    pointer-events: none;
+    transition: stroke-dasharray 0.4s ease, stroke-dashoffset 0.4s ease,
+                stroke-width 0.22s ease, opacity 0.22s ease;
+}
+
+/* Hover hit area — a wider invisible ring layered over the chart */
+.donut-hit {
+    fill: none;
+    stroke: transparent;
+    stroke-width: 30;
+    cursor: pointer;
+    transform-origin: 100px 100px;
+    transform: rotate(-90deg);
+}
+
+.donut-label {
+    fill: var(--text-muted);
+    font-size: 9.5px;
+    font-family: Outfit, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    transition: opacity 0.22s ease;
+}
+
+.donut-value {
+    fill: var(--text-primary);
+    font-size: 22px;
+    font-family: Outfit, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    transition: font-size 0.15s ease;
+}
+
+/* ── Bidirectional hover interaction ── */
+.savings-breakdown.is-hovering .donut-seg {
+    opacity: 0.12;
+}
+.savings-breakdown.is-hovering .donut-seg.is-active {
+    opacity: 1;
+    stroke-width: 27;
+}
+.savings-breakdown.is-hovering .legend-item {
+    opacity: 0.32;
+}
+.savings-breakdown.is-hovering .legend-item.is-active {
+    opacity: 1;
+}
+
+/* Legend */
+.donut-legend {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+}
+
+.legend-item {
+    display: grid;
+    grid-template-columns: 8px 1fr 18px 46px 34px;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4375rem 0.625rem;
+    border-radius: 7px;
+    transition: opacity 0.22s ease, background 0.22s ease;
+    position: relative;
+}
+
+.legend-item.is-active {
+    background: rgba(255, 255, 255, 0.03);
+    outline: 1px solid var(--border);
+}
+
+.legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: transform 0.22s ease;
+}
+
+.legend-item.is-active .legend-dot {
+    transform: scale(1.35);
+}
+
+.legend-name {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ── Info button & tooltip ── */
+.info-btn {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: help;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.4;
+    transition: opacity 0.15s, color 0.15s;
+    flex-shrink: 0;
+    border-radius: 50%;
+}
+
+.info-btn:hover,
+.info-btn:focus-visible {
+    opacity: 1;
+    color: var(--accent);
+    outline: none;
+}
+
+.info-btn svg {
+    width: 13px;
+    height: 13px;
+    display: block;
+}
+
+/* Tooltip caret (tiny downward triangle between button and bubble) */
+.info-btn::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 4px);
+    right: 4px;
+    border: 4px solid transparent;
+    border-top-color: var(--border);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    z-index: 201;
+}
+
+/* Tooltip bubble */
+.info-btn::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    right: -6px;
+    min-width: 220px;
+    max-width: 256px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--accent);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    line-height: 1.6;
+    padding: 0.625rem 0.875rem;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.15s ease;
+    z-index: 200;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    font-weight: 400;
+    white-space: normal;
+    text-align: left;
+    font-family: Outfit, sans-serif;
+}
+
+.info-btn:hover::before,
+.info-btn:focus-visible::before,
+.info-btn:hover::after,
+.info-btn:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.legend-val {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+.legend-pct {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .savings .services-header {
+        text-align: center;
+    }
+    .savings-calculator {
+        padding: var(--space-lg);
+        overflow: hidden; /* clip the ::before glow that bleeds 60px beyond the card edge */
+    }
+    .savings-breakdown {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+    .donut-chart {
+        max-width: 180px;
+    }
+    /* Hide info icons entirely on mobile — hover doesn't exist, tap-toggle adds noise */
+    .info-btn {
+        display: none;
+    }
+    /* Remove the info column from the grid and allow names to wrap */
+    .legend-item {
+        grid-template-columns: 8px 1fr 46px 34px;
+    }
+    .legend-name {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+    }
 }
 
 /* ==========================================================
