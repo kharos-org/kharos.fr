@@ -257,7 +257,10 @@
         <div class="services-header fade-in">
           <span class="section-label">Time savings</span>
           <h2 class="section-heading">See how much time SPOT saves your team</h2>
-          <p>Certificate rotation, password management, network config, audit prep: it all adds up. Move the slider to see the yearly operational cost on your fleet size.</p>
+          <p>
+            Certificate rotation, password management, network config, audit prep: it all adds up. Move the slider to see the yearly operational cost
+            on your fleet size.
+          </p>
         </div>
 
         <div class="savings-calculator fade-in">
@@ -279,18 +282,6 @@
                 <span class="result-label">Manual hours / year</span>
                 <span class="result-value" id="manualHours">756</span>
               </div>
-              <div class="result-divider"></div>
-              <div class="result-item">
-                <span class="result-label">Estimated labor cost</span>
-                <span class="result-value" id="laborCost">€37 800</span>
-                <span class="result-sub" id="costRateLabel">at €35/h loaded cost</span>
-              </div>
-              <div class="result-divider"></div>
-              <div class="result-item">
-                <span class="result-label">Full-time equivalent</span>
-                <span class="result-value" id="fteValue">0.43</span>
-                <span class="result-sub">FTE dedicated to manual ops</span>
-              </div>
             </div>
           </div>
 
@@ -310,55 +301,103 @@
             </div>
             <ul class="donut-legend">
               <li class="legend-item" data-idx="0">
-                <span class="legend-dot" style="background:#00d4aa"></span>
+                <span class="legend-dot" style="background: #00d4aa"></span>
                 <span class="legend-name">802.1x &amp; HTTPS certs</span>
-                <button class="info-btn" data-tooltip="Automated renewal of 802.1x EAP-TLS and HTTPS certificates across the fleet (2 cycles/year). The single largest driver of manual effort at scale." aria-label="More info">
-                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25"/><line x1="8" y1="7.5" x2="8" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/><circle cx="8" cy="5.25" r="0.75" fill="currentColor"/></svg>
+                <button
+                  class="info-btn"
+                  data-tooltip="Automated renewal of 802.1x EAP-TLS and HTTPS certificates across the fleet (2 cycles/year). The single largest driver of manual effort at scale."
+                  aria-label="More info"
+                >
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25" />
+                    <line x1="8" y1="7.5" x2="8" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
+                    <circle cx="8" cy="5.25" r="0.75" fill="currentColor" />
+                  </svg>
                 </button>
                 <span class="legend-val" id="lv0"></span>
                 <span class="legend-pct" id="lp0"></span>
               </li>
               <li class="legend-item" data-idx="1">
-                <span class="legend-dot" style="background:#2ec4b6"></span>
+                <span class="legend-dot" style="background: #2ec4b6"></span>
                 <span class="legend-name">Password rotation</span>
-                <button class="info-btn" data-tooltip="Scheduled credential rotation on OT devices. Typically 1 to 2 times per year under standard security policies." aria-label="More info">
-                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25"/><line x1="8" y1="7.5" x2="8" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/><circle cx="8" cy="5.25" r="0.75" fill="currentColor"/></svg>
+                <button
+                  class="info-btn"
+                  data-tooltip="Scheduled credential rotation on OT devices. Typically 1 to 2 times per year under standard security policies."
+                  aria-label="More info"
+                >
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25" />
+                    <line x1="8" y1="7.5" x2="8" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
+                    <circle cx="8" cy="5.25" r="0.75" fill="currentColor" />
+                  </svg>
                 </button>
                 <span class="legend-val" id="lv1"></span>
                 <span class="legend-pct" id="lp1"></span>
               </li>
               <li class="legend-item" data-idx="2">
-                <span class="legend-dot" style="background:#45b7d1"></span>
+                <span class="legend-dot" style="background: #45b7d1"></span>
                 <span class="legend-name">Network config (NTP/DNS)</span>
-                <button class="info-btn" data-tooltip="Propagation of NTP and DNS settings after infrastructure changes. Drift impacts audit log accuracy and triggers compliance findings." aria-label="More info">
-                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25"/><line x1="8" y1="7.5" x2="8" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/><circle cx="8" cy="5.25" r="0.75" fill="currentColor"/></svg>
+                <button
+                  class="info-btn"
+                  data-tooltip="Propagation of NTP and DNS settings after infrastructure changes. Drift impacts audit log accuracy and triggers compliance findings."
+                  aria-label="More info"
+                >
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25" />
+                    <line x1="8" y1="7.5" x2="8" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
+                    <circle cx="8" cy="5.25" r="0.75" fill="currentColor" />
+                  </svg>
                 </button>
                 <span class="legend-val" id="lv2"></span>
                 <span class="legend-pct" id="lp2"></span>
               </li>
               <li class="legend-item" data-idx="3">
-                <span class="legend-dot" style="background:#74c0d8"></span>
+                <span class="legend-dot" style="background: #74c0d8"></span>
                 <span class="legend-name">Audit prep &amp; inventory</span>
-                <button class="info-btn" data-tooltip="Manual fleet cross-check before DSAC/NIS2 audits: firmware versions, cert states, config drift. Done 1 to 2 times per year." aria-label="More info">
-                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25"/><line x1="8" y1="7.5" x2="8" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/><circle cx="8" cy="5.25" r="0.75" fill="currentColor"/></svg>
+                <button
+                  class="info-btn"
+                  data-tooltip="Manual fleet cross-check before DSAC/NIS2 audits: firmware versions, cert states, config drift. Done 1 to 2 times per year."
+                  aria-label="More info"
+                >
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25" />
+                    <line x1="8" y1="7.5" x2="8" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
+                    <circle cx="8" cy="5.25" r="0.75" fill="currentColor" />
+                  </svg>
                 </button>
                 <span class="legend-val" id="lv3"></span>
                 <span class="legend-pct" id="lp3"></span>
               </li>
               <li class="legend-item" data-idx="4">
-                <span class="legend-dot" style="background:#4ecdc4"></span>
+                <span class="legend-dot" style="background: #4ecdc4"></span>
                 <span class="legend-name">Device onboarding</span>
-                <button class="info-btn" data-tooltip="Full provisioning of new devices added each year (~10% of fleet): cert install, network config push, and inventory entry." aria-label="More info">
-                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25"/><line x1="8" y1="7.5" x2="8" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/><circle cx="8" cy="5.25" r="0.75" fill="currentColor"/></svg>
+                <button
+                  class="info-btn"
+                  data-tooltip="Full provisioning of new devices added each year (~10% of fleet): cert install, network config push, and inventory entry."
+                  aria-label="More info"
+                >
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25" />
+                    <line x1="8" y1="7.5" x2="8" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
+                    <circle cx="8" cy="5.25" r="0.75" fill="currentColor" />
+                  </svg>
                 </button>
                 <span class="legend-val" id="lv4"></span>
                 <span class="legend-pct" id="lp4"></span>
               </li>
               <li class="legend-item" data-idx="5">
-                <span class="legend-dot" style="background:#f4a261"></span>
+                <span class="legend-dot" style="background: #f4a261"></span>
                 <span class="legend-name">Cert expiry incidents</span>
-                <button class="info-btn" data-tooltip="Emergency remediation when a cert expires unnoticed. EAP-TLS failure blocks devices from the network. Probability scales with fleet size." aria-label="More info">
-                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25"/><line x1="8" y1="7.5" x2="8" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"/><circle cx="8" cy="5.25" r="0.75" fill="currentColor"/></svg>
+                <button
+                  class="info-btn"
+                  data-tooltip="Emergency remediation when a cert expires unnoticed. EAP-TLS failure blocks devices from the network. Probability scales with fleet size."
+                  aria-label="More info"
+                >
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.25" />
+                    <line x1="8" y1="7.5" x2="8" y2="11" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" />
+                    <circle cx="8" cy="5.25" r="0.75" fill="currentColor" />
+                  </svg>
                 </button>
                 <span class="legend-val" id="lv5"></span>
                 <span class="legend-pct" id="lp5"></span>
