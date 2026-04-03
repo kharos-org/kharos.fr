@@ -601,9 +601,16 @@
 
 .slider-header {
     display: flex;
-    align-items: baseline;
+    align-items: flex-end;
     justify-content: space-between;
     margin-bottom: var(--space-lg);
+    gap: var(--space-xl);
+}
+
+.slider-header-left {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-md);
 }
 
 .slider-header label {
@@ -617,8 +624,30 @@
     font-weight: 800;
     color: var(--accent);
     letter-spacing: -0.02em;
-    min-width: 80px;
-    text-align: right;
+}
+
+.slider-header-right {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-sm);
+    flex-shrink: 0;
+}
+
+.slider-header-right .result-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+.slider-header-right .result-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
 }
 
 .slider {
@@ -1048,6 +1077,19 @@
     .savings-calculator {
         padding: var(--space-lg);
         overflow: hidden; /* clip the ::before glow that bleeds 60px beyond the card edge */
+    }
+    .slider-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+    }
+    .slider-header-left {
+        justify-content: space-between;
+    }
+    .slider-header-right {
+        justify-content: space-between;
+        padding-top: var(--space-sm);
+        border-top: 1px solid var(--border);
     }
     .savings-breakdown {
         grid-template-columns: 1fr;

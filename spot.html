@@ -266,22 +266,19 @@
         <div class="savings-calculator fade-in">
           <div class="calculator-slider-section">
             <div class="slider-header">
-              <label for="deviceSlider">Number of devices</label>
-              <span class="device-count" id="deviceCount">500</span>
+              <div class="slider-header-left">
+                <label for="deviceSlider">Number of devices</label>
+                <span class="device-count" id="deviceCount">500</span>
+              </div>
+              <div class="slider-header-right">
+                <span class="result-label">Manual hours / year</span>
+                <span class="result-value" id="manualHours">756</span>
+              </div>
             </div>
             <input type="range" class="slider" id="deviceSlider" min="10" max="1200" value="500" step="10" />
             <div class="slider-labels">
               <span>10</span>
               <span>1 200</span>
-            </div>
-          </div>
-
-          <div class="calculator-result">
-            <div class="result-row">
-              <div class="result-item result-total">
-                <span class="result-label">Manual hours / year</span>
-                <span class="result-value" id="manualHours">756</span>
-              </div>
             </div>
           </div>
 
